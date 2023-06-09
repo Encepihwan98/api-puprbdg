@@ -29,7 +29,7 @@ CORS(app)  # Menambahkan middleware CORS
 front = 'https://simbg.pu.go.id/Front'
 dashb = 'https://simbg.pu.go.id/Dashboard'
 kons = 'https://simbg.pu.go.id/Monitoring/Konsultasi'
-path = "D:\Downloads\chromedriver_win32\chromedriver.exe"
+path = "/home/sibedaspbg/chromedriver/chromedrivers"
 
 # Customize chrome display
 chrome_options = Options()
@@ -101,13 +101,13 @@ time.sleep(10)
 
 driver.close()
 
-x2x = XLS2XLSX(f'C:/Users/encep/Downloads/Cetak Monitoring{today}.xls')
-x2x.to_xlsx(f'C:/Users/encep/Downloads/Cetak Monitoring{today}.xlsx')
+x2x = XLS2XLSX(f'/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xls')
+x2x.to_xlsx(f'/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xlsx')
 
-cetak_mon = pd.read_excel(f'C:/Users/encep/Downloads/Cetak Monitoring{today}.xlsx')[
+cetak_mon = pd.read_excel(f'/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xlsx')[
     ['Jenis Konsultasi', 'No. Registrasi', 'Nama Pemilik', 'Lokasi BG', 'Status']]
-os.remove(f'C:/Users/encep/Downloads/Cetak Monitoring{today}.xls')
-os.remove(f'C:/Users/encep/Downloads/Cetak Monitoring{today}.xlsx')
+os.remove(f'/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xls')
+os.remove(f'/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xlsx')
 cetak_mon['statusBaru'] = cetak_mon['Status'].copy()
 cetak_mon['statusBaru'] = cetak_mon['statusBaru'].replace(['Verifikasi Kelengkapan Operator',
                                                            'Perbaikan Dokumen',
