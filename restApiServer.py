@@ -102,63 +102,6 @@ paswd.send_keys("habibie11")
 btn_ijo = driver.find_element(By.XPATH, '//*[@id="frmLogin"]/div[3]/button[1]')
 btn_ijo.click()
 
-driver.get(dashb)
-
-
-try:
-    btn_kng1 = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.XPATH, '//*[@id="Pemberitahuan"]/div[3]/center/button')
-        )
-    )
-    btn_kng1.click()
-except:
-    btn_kng1 = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.XPATH, '//*[@id="Pemberitahuan"]/div[3]/center/button')
-        )
-    )
-    btn_kng1.click()
-
-script2 = """var element = document.querySelector('.modal-scrollable');element.parentNode.removeChild(element);"""
-driver.execute_script(script2)
-script1 = """var element = document.getElementsByClassName('modal-backdrop fade in')[0]; element.classList.remove('modal-backdrop', 'fade', 'in');"""
-driver.execute_script(script1)
-
-html = driver.page_source
-
-# Cetak halaman HTML
-print(html)
-
-# Menyimpan halaman HTML ke dalam file
-with open('halaman.html', 'w', encoding='utf-8') as file:
-    file.write(html)
-
-
-try:
-    dd_monnit = wait10.until(
-        EC.element_to_be_clickable(
-            (By.XPATH, '//*[@id="headeradmin"]/div/div/ul/li[7]')
-        )
-    )
-    dd_monnit.click()
-    dd_monnit.click()
-    dd_monkot = wait10.until(
-        EC.element_to_be_clickable(
-            (By.XPATH, '//*[@id="headeradmin"]/div/div/ul/li[7]/ul/li/a')
-        )
-    )
-    dd_monkot.click()
-except:
-    btn_kng1 = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.XPATH, '//*[@id="Pemberitahuan"]/div[3]/center/button')
-        )
-    )
-    btn_kng1.click()
-finally:
-    pass
-
 driver.get(kons)
 
 cetak = wait10.until(
