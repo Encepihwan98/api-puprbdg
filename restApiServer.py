@@ -52,7 +52,7 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 # driver = webdriver.Chrome(executable_path=path, options=chrome_options)
 driver.get(front)
 
-wait10 = WebDriverWait(driver, 200)
+wait10 = WebDriverWait(driver, 30)
 wait20 = WebDriverWait(driver, 20)
 
 html = driver.execute_script(
@@ -119,15 +119,10 @@ except:
     )
     btn_kng1.click()
 
-tombol_tutup = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//button[@data-dismiss="modal" and contains(@class, "btn yellow-crusta")]')))
-
-# Klik tombol "Tutup"
-tombol_tutup.click()
-
-# script2 = """var element = document.querySelector('.modal-scrollable');element.parentNode.removeChild(element);"""
-# driver.execute_script(script2)
-# script1 = """var element = document.getElementsByClassName('modal-backdrop fade in')[0]; element.classList.remove('modal-backdrop', 'fade', 'in');"""
-# driver.execute_script(script1)
+script2 = """var element = document.querySelector('.modal-scrollable');element.parentNode.removeChild(element);"""
+driver.execute_script(script2)
+script1 = """var element = document.getElementsByClassName('modal-backdrop fade in')[0]; element.classList.remove('modal-backdrop', 'fade', 'in');"""
+driver.execute_script(script1)
 
 try:
     dd_monnit = wait10.until(
