@@ -116,14 +116,14 @@ time.sleep(10)
 driver.close()
 display.stop()
 
-x2x = XLS2XLSX(f"/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xls")
-x2x.to_xlsx(f"/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xlsx")
+x2x = XLS2XLSX(f"/home/sibedaspbg/Downloads/Cetak Monitoring{today}.xls")
+x2x.to_xlsx(f"/home/sibedaspbg/Downloads/Cetak Monitoring{today}.xlsx")
 
-cetak_mon = pd.read_excel(f"/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xlsx")[
+cetak_mon = pd.read_excel(f"/home/sibedaspbg/Downloads/Cetak Monitoring{today}.xlsx")[
     ["Jenis Konsultasi", "No. Registrasi", "Nama Pemilik", "Lokasi BG", "Status"]
 ]
-os.remove(f"/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xls")
-os.remove(f"/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xlsx")
+os.remove(f"/home/sibedaspbg/Downloads/Cetak Monitoring{today}.xls")
+os.remove(f"/home/sibedaspbg/Downloads/Cetak Monitoring{today}.xlsx")
 cetak_mon["statusBaru"] = cetak_mon["Status"].copy()
 cetak_mon["statusBaru"] = cetak_mon["statusBaru"].replace(
     [
