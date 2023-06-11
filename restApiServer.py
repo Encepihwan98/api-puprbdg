@@ -33,16 +33,16 @@ kons = 'https://simbg.pu.go.id/Monitoring/Konsultasi'
 path = "/home/sibedaspbg/chromedriver/chromedriver"
 
 # Customize chrome display
-chrome_options = Options()
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('disable-notifications')
-chrome_options.add_argument('--disable-infobars')
+# chrome_options = Options()
+# chrome_options.add_argument('--no-sandbox')
+# chrome_options.add_argument('--headless')
+# chrome_options.add_argument('disable-notifications')
+# chrome_options.add_argument('--disable-infobars')
 chrome_options = webdriver.ChromeOptions()
 
 # Add any desired options to chrome_options
 
-service = Service('/home/sibedaspbg/chromedriver/chromedriver')
+service = Service('/home/sibedaspbg/chromedriver/chromedriver', extra_args=['--no-sandbox', '--headless', 'disable-notifications', '--disable-infobar'])
 driver = webdriver.Chrome(service=service, options=chrome_options)
 # driver = webdriver.Chrome(executable_path=path, options=chrome_options)
 driver.get(front)
