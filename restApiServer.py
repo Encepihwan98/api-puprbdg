@@ -42,7 +42,7 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 # driver = webdriver.Chrome(executable_path=path, options=chrome_options)
 driver.get(front)
 
-wait10 = WebDriverWait(driver, 40)
+wait10 = WebDriverWait(driver, 200)
 wait20 = WebDriverWait(driver, 20)
 
 html = driver.execute_script('return document.getElementsByTagName("html")[0].innerHTML')
