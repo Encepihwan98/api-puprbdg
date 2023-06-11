@@ -1,5 +1,6 @@
 import pandas as pd
 pd.set_option('display.max_columns',None)
+from pyvirtualdisplay import Display
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -31,7 +32,8 @@ front = 'https://simbg.pu.go.id/Front'
 dashb = 'https://simbg.pu.go.id/Dashboard'
 kons = 'https://simbg.pu.go.id/Monitoring/Konsultasi'
 path = "/home/sibedaspbg/chromedriver/chromedriver"
-
+display = Display(visible=0, size=(1920, 1080))
+display.start()
 # Customize chrome display
 # chrome_options = Options()
 # chrome_options.add_argument('--no-sandbox')
@@ -107,7 +109,7 @@ cetak.click()
 time.sleep(10)
 
 driver.close()
-
+display.stop()
 x2x = XLS2XLSX(f'/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xls')
 x2x.to_xlsx(f'/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xlsx')
 
