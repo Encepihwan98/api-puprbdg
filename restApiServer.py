@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.chrome.service import Service
 from flask import Flask, jsonify, make_response
 from flask_cors import CORS
 from xls2xlsx import XLS2XLSX
@@ -37,9 +38,13 @@ chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('disable-notifications')
 chrome_options.add_argument('--disable-infobars')
+chrome_options = webdriver.ChromeOptions()
 
+# Add any desired options to chrome_options
+
+service = Service('/home/sibedaspbg/chromedriver/chromedriver')
+driver = webdriver.Chrome(service=service, options=chrome_options)
 # driver = webdriver.Chrome(executable_path=path, options=chrome_options)
-driver = webdriver.Chrome(options=chrome_options, executable_path='/home/sibedaspbg/chromedriver/chromedriver')
 driver.get(front)
 
 wait10 = WebDriverWait(driver, 10)
