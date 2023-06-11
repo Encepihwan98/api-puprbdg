@@ -39,6 +39,7 @@ path = "/home/sibedaspbg/chromedriver/chromedriver"
 # chrome_options.add_argument('disable-notifications')
 # chrome_options.add_argument('--disable-infobars')
 chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = '/usr/bin/google-chrome'
 
 # Add any desired options to chrome_options
 
