@@ -25,25 +25,17 @@ last_year = int(this_year) - 1
 clear_output()
 
 app = Flask(__name__)
-CORS(app)  # Menambahkan middleware CORS
+CORS(app)
 
-# Link website
 front = 'https://simbg.pu.go.id/Front'
 dashb = 'https://simbg.pu.go.id/Dashboard'
 kons = 'https://simbg.pu.go.id/Monitoring/Konsultasi'
 path = "/home/sibedaspbg/chromedriver/chromedriver"
 display = Display(visible=0, size=(1920, 1080))
 display.start()
-# Customize chrome display
-# chrome_options = Options()
-# chrome_options.add_argument('--no-sandbox')
-# chrome_options.add_argument('--headless')
-# chrome_options.add_argument('disable-notifications')
-# chrome_options.add_argument('--disable-infobars')
+
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = '/usr/bin/google-chrome'
-
-# Add any desired options to chrome_options
 
 service = Service('/home/sibedaspbg/chromedriver/chromedriver', extra_args=['--no-sandbox', '--headless', 'disable-notifications', '--disable-infobar'])
 driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -110,6 +102,7 @@ time.sleep(10)
 
 driver.close()
 display.stop()
+
 x2x = XLS2XLSX(f'/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xls')
 x2x.to_xlsx(f'/home/sibedaspbg/api-puprbdg/Cetak Monitoring{today}.xlsx')
 
