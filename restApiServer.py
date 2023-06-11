@@ -39,7 +39,7 @@ chrome_options.add_argument('disable-notifications')
 chrome_options.add_argument('--disable-infobars')
 
 # driver = webdriver.Chrome(executable_path=path, options=chrome_options)
-driver = webdriver.Chrome(chrome_options=chrome_options, executable_path='/home/sibedaspbg/chromedriver/chromedriver')
+driver = webdriver.Chrome(options=chrome_options, executable_path='/home/sibedaspbg/chromedriver/chromedriver')
 driver.get(front)
 
 wait10 = WebDriverWait(driver, 10)
