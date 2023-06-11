@@ -29,17 +29,17 @@ CORS(app)  # Menambahkan middleware CORS
 front = 'https://simbg.pu.go.id/Front'
 dashb = 'https://simbg.pu.go.id/Dashboard'
 kons = 'https://simbg.pu.go.id/Monitoring/Konsultasi'
-path = "/home/sibedaspbg/chromedriver/chromedrivers"
+path = "/home/sibedaspbg/chromedriver/chromedriver"
 
 # Customize chrome display
 chrome_options = Options()
 chrome_options.add_argument('--no-sandbox')
-# chrome_options.add_argument('--headless')
+chrome_options.add_argument('--headless')
 chrome_options.add_argument('disable-notifications')
 chrome_options.add_argument('--disable-infobars')
 
 # driver = webdriver.Chrome(executable_path=path, options=chrome_options)
-driver = webdriver.Chrome(executable_path='/home/sibedaspbg/chromedriver/chromedrivers', chrome_options=chrome_options)
+driver = webdriver.Chrome(chrome_options=chrome_options, executable_path='/home/sibedaspbg/chromedriver/chromedriver')
 driver.get(front)
 
 wait10 = WebDriverWait(driver, 10)
