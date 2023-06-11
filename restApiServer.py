@@ -81,17 +81,19 @@ except:
     btn_kng1 = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="Pemberitahuan"]/div[3]/center/button')))
     btn_kng1.click()
 
-script = '''var element = document.getElementsByClassName('modal-backdrop fade in')[0]; element.classList.remove('modal-backdrop', 'fade', 'in');'''
-driver.execute_script(script)
+script1 = '''var element = document.getElementsByClassName('modal-backdrop fade in')[0]; element.classList.remove('modal-backdrop', 'fade', 'in');'''
+driver.execute_script(script1)
+script2 = '''var element = document.querySelector('.modal-scrollable');element.parentNode.removeChild(element);'''
+driver.execute_script(script2)
 
-html = driver.page_source
+# html = driver.page_source
 
 # Cetak halaman HTML
-print(html)
+# print(html)
 
 # Menyimpan halaman HTML ke dalam file
-with open('halaman.html', 'w', encoding='utf-8') as file:
-    file.write(html)
+# with open('halaman.html', 'w', encoding='utf-8') as file:
+#     file.write(html)
     
 try:
     dd_monnit = wait10.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="headeradmin"]/div/div/ul/li[7]')))  #
