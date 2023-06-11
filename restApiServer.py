@@ -52,7 +52,7 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 # driver = webdriver.Chrome(executable_path=path, options=chrome_options)
 driver.get(front)
 
-wait10 = WebDriverWait(driver, 30)
+wait10 = WebDriverWait(driver, 150)
 wait20 = WebDriverWait(driver, 20)
 
 html = driver.execute_script(
@@ -103,6 +103,7 @@ btn_ijo = driver.find_element(By.XPATH, '//*[@id="frmLogin"]/div[3]/button[1]')
 btn_ijo.click()
 
 driver.get(dashb)
+
 
 try:
     btn_kng1 = WebDriverWait(driver, 10).until(
