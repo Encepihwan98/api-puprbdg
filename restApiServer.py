@@ -38,7 +38,7 @@ display.start()
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = "/usr/bin/google-chrome"
-chrome_options.add_argument("--disable-dev-shm-usage")
+# chrome_options.add_argument("--disable-dev-shm-usage")
 
 service = Service(
     "/home/sibedaspbg/chromedriver/chromedriver",
