@@ -103,15 +103,6 @@ paswd.send_keys("habibie11")
 btn_ijo = driver.find_element(By.XPATH, '//*[@id="frmLogin"]/div[3]/button[1]')
 btn_ijo.click()
 
-html = driver.page_source
-
-# Cetak halaman HTML
-print(html)
-
-# Menyimpan halaman HTML ke dalam file
-with open('halaman.html', 'w', encoding='utf-8') as file:
-    file.write(html)
-    
 driver.get(kons)
 
 cetak = wait10.until(
