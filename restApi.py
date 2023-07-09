@@ -93,47 +93,6 @@ paswd.send_keys("habibie11")
 btn_ijo = driver.find_element(By.XPATH, '//*[@id="frmLogin"]/div[3]/button[1]')
 btn_ijo.click()
 
-driver.get(dashb)
-
-try:
-    btn_kng1 = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.XPATH, '//*[@id="Pemberitahuan"]/div[3]/center/button')
-        )
-    )
-    btn_kng1.click()
-except:
-    btn_kng1 = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.XPATH, '//*[@id="Pemberitahuan"]/div[3]/center/button')
-        )
-    )
-    btn_kng1.click()
-
-try:
-    dd_monnit = wait10.until(
-        EC.element_to_be_clickable(
-            (By.XPATH, '//*[@id="headeradmin"]/div/div/ul/li[7]')
-        )
-    )  #
-    dd_monnit.click()
-    dd_monnit.click()
-    dd_monkot = wait10.until(
-        EC.element_to_be_clickable(
-            (By.XPATH, '//*[@id="headeradmin"]/div/div/ul/li[7]/ul/li/a')
-        )
-    )
-    dd_monkot.click()
-except:
-    btn_kng1 = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.XPATH, '//*[@id="Pemberitahuan"]/div[3]/center/button')
-        )
-    )
-    btn_kng1.click()
-finally:
-    pass
-
 driver.get(kons)
 
 cetak = wait10.until(

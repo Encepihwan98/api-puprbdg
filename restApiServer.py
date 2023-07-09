@@ -32,7 +32,7 @@ CORS(app)
 front = "https://simbg.pu.go.id/Front"
 dashb = "https://simbg.pu.go.id/Dashboard"
 kons = "https://simbg.pu.go.id/Monitoring/Konsultasi"
-path = "/home/sibedaspbg/chromedriver/chromedriver"
+path = "/usr/local/bin/chromedriver"
 display = Display(visible=0, size=(1920, 1080))
 display.start()
 
