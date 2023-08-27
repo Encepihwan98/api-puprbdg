@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sibedaspbg-logbook",
+  "private_key_id": "cab4b99bdcaeb742e379a760fba83f4a83586cd9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCRX4d77lX2mwWu\n2gfn5vt2qAMKVnNkwww34m1XHxjlue9bUp7Pv1JB2EVR51a/AUb2jSY1/s6/C8MJ\n8X469rSy+RPuIzypPsx4lOYOkNpTFUwDpf/n6IxamSvmBhYLkn3gxjJhLfZWigDb\nllKasUEAwCd32k6ud2ojSXA0NfIYOg68VQfwis2bsHby6SyWtC428uM/FN6jKCIX\n1yM96xhAvW1WvWR6gyQ2VZonyGUSGkoXwRuje/86pyiOOFB9KicwyDRJEyhKxdh7\n3mINVtj0Fy6i6pRkfEbizGIwyOlecMdxS3yk/neEZvNc0EHgUFZEyc7CohG8/zJ6\ngbJUSipFAgMBAAECggEAHqHMCSu39m5E/MqZht6Plzmg5mFAEHffD7mJA6YcV2/e\nBVa7+xeb7B73wGHoT/gjbVlht1f5VZ1TXDmEOUV53wqIDhJjul/usuvhLCmOr5oZ\nud0VNtc0F/UVoHMg2xBjsOTigcKvGR4cPykGP+1gvpk+18zq7m1gMo5Lc9z4Je1o\nlzS7yJCDo+EhRtDBvjzxBOzq0RTEzaiAezNbTje8ANfSoY/zc2rM+XdCd9ux8s0B\nGuxUcVCjdRyRqkEQttr0fo3th2iCOUQghwelwx5NNNlG0CuEb2MNDAZcgaCWe4Jy\njw/l0Jbgimv/PvpAupAn2kuPifVYwxLGklFl4yeTwQKBgQDCQHgXrE+42YAkjmpd\n5EYo1gFD9ci/HNqBBfN6kjCtp9928RNpZNRoJmA6yoRCndeuxBO1t0bUDuC/ocvj\neSrmK2YrNf5A1tZHUK07NLNF55ida2H09Sb50mzzSmtXzbAdiar4Z7Ovsemg9dTg\nW7ObpRBAVVUC2PFRN4YaDKu3oQKBgQC/lXxbH4LF2orp+n6hVa5Qrq8YIEVxPcbu\nBGfq+HACm2Q0o/WUD/o7g+GcvcfxbjoZfQJJNGb7/xt5toLIgH6yLTQ1Q0eX/ntn\nGmlyNRiK/cQsnyU/gxEvPCbh7/nG13xI/1Z/K2ZAXBr78RI+YfnnATVUARQYn++O\n84xV4DSgJQKBgBqpRJJjORHy8E6UKW83nJWQQd41BteMO0VILtHc7Md46gfmMLbf\nevPMiJqpHxwRk//Ns7LWM+d5H0nOCDDxeXzb6gr2Py5hDkn9fblJk219ywmYKnq3\nhyD0y7Vcunzzoz96nLe5bAUqUxmfhBdDHtS3BBMAY0mfwwdVqpc6s/rhAoGAcNkR\nje8qrXZEOvwU2N1KNzYd5t0jakeURKENwQcjmzWCucsWHWen4qSVISlce6aMzHSp\nAwu92ZNz0KajtIyTlEoyJWmC41G/yIRzNhV2ZnCBvDLl0tpWJfeNg6pB+1D0YV8d\nyPx8V06pilt+foZhmCNLETctai/TAOYOdIsDFI0CgYAqZeBT5wBtzpBBvnzciYd4\nEyNOfskBHijFhdXnd0eq5SyNw9724TQpdilBHJ/Vn2mle68qDLanUh+gnaVymiav\nNdbKsI5EpXCgaFPMuNhq43eI+8n3uHm/hFIGWElv4UYTG7Cs1yQm4hDwXhHkYXNd\nutRy2fB+2gMoJIIs9mx3tQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "sibedaspbg-logbook@sibedaspbg-logbook.iam.gserviceaccount.com",
+  "client_id": "114883796752109308052",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sibedaspbg-logbook%40sibedaspbg-logbook.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

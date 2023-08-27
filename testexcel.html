@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Read Excel Data</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>Read Excel Data</h1>
+
+  <table id="excelTable">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <!-- Tambahkan lebih banyak header kolom sesuai kebutuhan -->
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Isi tabel akan ditambahkan di sini menggunakan JavaScript -->
+    </tbody>
+  </table>
+
+  <script>
+    let url = "http://127.0.0.1:5000/read_excel";
+    axios
+      .get(url)
+      .then(function (response) {
+        console.log(response);
+        
+        let tableBody = document.querySelector("#excelTable tbody");
+
+        // Menghapus semua baris yang ada sebelumnya (jika ada)
+        while (tableBody.firstChild) {
+          tableBody.removeChild(tableBody.firstChild);
+        }
+
+        // Mengisi tabel dengan data dari respons
+        response.data.forEach(function (rowData) {
+          let row = document.createElement("tr");
+          rowData.forEach(function (cellData) {
+            let cell = document.createElement("td");
+            cell.textContent = cellData;
+            row.appendChild(cell);
+          });
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(function (error) {
+        // Terjadi error dalam mengambil data
+        console.error("Error:", error);
+      });
+  </script>
+</body>
+</html>
