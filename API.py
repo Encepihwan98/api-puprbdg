@@ -1,34 +1,13 @@
 from flask import Flask
-from flask_restful import Resource, Api, reqparse
+from flask_cors import CORS
+from apiLacak import lacak_bp
+from rekapPBG import rekap_bp
 
 app = Flask(__name__)
-api = Api(app)
+CORS(app)
 
-class SIMBG(Resource):
-    def get(self):
-        parser = reqparse.RequestParser()
+app.register_blueprint(lacak_bp, url_prefix='/api/lacak')
+app.register_blueprint(rekap_bp, url_prefix='/api/rekap-pbg')
 
-        parser.add_argument('total_berkas', type=int, required=True)
-        parser.add_argument('berkas_terbit_2022', type=int, required=True)
-        parser.add_argument('total_berkas_2023', type=int, required=True)
-        parser.add_argument('berkas_aktual_belum_terverifikasi', type=int, required=True)
-        parser.add_argument('berkas_aktual_terverifikasi_dinas_teknis', type=int, required=True)
-        parser.add_argument('terproses_di_ptsp', type=int, required=True)
-        parser.add_argument('berkas_terbit_pbg', type=int, required=True)
-
-        args = parser.parse_args()
-
-        return {
-            'Total Berkas': args['total_berkas'],
-            'Berkas Terbit 2022': args['berkas_terbit_2022'],
-            'Total Berkas 2023': args['total_berkas_2023'],
-            'Berkas Aktual Belum Terverifikasi': args['berkas_aktual_belum_terverifikasi'],
-            'Berkas Aktual Terverifikasi Dinas Teknis': args['berkas_aktual_terverifikasi_dinas_teknis'],
-            'Terproses di PTSP': args['terproses_di_ptsp'],
-            'Berkas Terbit PBG': args['berkas_terbit_pbg']
-        }
-
-api.add_resource(SIMBG, "/simbg")
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
