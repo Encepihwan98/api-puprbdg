@@ -1,28 +1,8 @@
 import pandas as pd
-import numpy as np
-import json
-pd.set_option('display.max_columns',None)
-import time
-from bs4 import BeautifulSoup
-import requests
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
-# !pip3 install xls2xlsx
-from xls2xlsx import XLS2XLSX
 # !pip install gspread
 import gspread
 import datetime
-# !pip3 install sidetable
-import sidetable as stb
 from IPython.display import clear_output
-import shutil
-import os
 from datetime import datetime
 from datetime import date
 from datetime import timedelta
