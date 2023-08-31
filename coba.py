@@ -10,5 +10,5 @@ app.register_blueprint(lacak_bp, url_prefix='/api/lacak')
 app.register_blueprint(rekap_bp, url_prefix='/api/rekap-pbg')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(debug=False)
 
