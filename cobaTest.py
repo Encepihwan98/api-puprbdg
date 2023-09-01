@@ -12,16 +12,14 @@ def scrape_data(nomor):
 
     home_url = 'https://simbg.pu.go.id/Informasi'
     home_resp = s.get(home_url, verify=False)
-    soup = BeautifulSoup(home_resp.text, 'html.parser')
+    soup = BeautifulSoup(home_resp.text, 'lxml')  # Menggunakan 'lxml' sebagai parser
     csrf_test_name = soup.find('input', {'type': 'csrf_test_name'})
 
     url = f'https://simbg.pu.go.id/Informasi/Lacak/{nomor}?csrf_test_name={csrf_test_name}'
     resp = requests.get(url, verify=False)
     html = '<table> ' + resp.text + ' </table>'
-    # print(html)
 
-    # df = pd.read_html(html)[0].fillna('')
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(html, 'lxml')  # Menggunakan 'lxml' sebagai parser
     table = soup.find('table')
     df = pd.read_html(str(table))[0].fillna('')
 
@@ -34,4 +32,4 @@ def get_lacak_data(nomor):
     return jsonify(data)
 
 if __name__ == '__main__':
-    app.run(debug=False, port=8000)
+    app.run(debug=False, port=443)
