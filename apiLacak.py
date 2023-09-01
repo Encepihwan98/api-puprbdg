@@ -52,8 +52,9 @@ def scrape_data(nomor):
 
         html = "<table> " + resp.text + " </table>"
 
-        df = pd.read_html(html)[0].fillna("")
-        df.columns = ["No.", "Modul", "Tanggal", "Keterangan"]
+        df = pd.read_html(html)[0].fillna('')
+        df.columns = ['No.', 'Modul', 'Tanggal', 'Keterangan']
+
         return df.to_dict(orient="records")
 
     except requests.exceptions.RequestException as e:
