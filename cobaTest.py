@@ -18,7 +18,7 @@ def scrape_data(nomor):
     url = f'https://simbg.pu.go.id/Informasi/Lacak/{nomor}?csrf_test_name={csrf_test_name}'
     resp = requests.get(url, verify=False)
     html = '<table> ' + resp.text + ' </table>'
-
+    print(html)
     df = pd.read_html(html)[0].fillna('')
     df.columns = ['No.', 'Modul', 'Tanggal', 'Keterangan']
     return df.to_dict(orient='records')
