@@ -1,5 +1,4 @@
-from cobaTest import app
+from restApiServer import app
 
 if __name__ == "__main__":
     app.run()
-

@@ -10,5 +10,5 @@
  #response = '\n'.join([message, version])
  #return [response.encode()]
  
-from coba import app as application
+from apiLacak import app as application
 
