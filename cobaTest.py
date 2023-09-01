@@ -1,32 +1,32 @@
+from flask import Flask, request, jsonify
+import requests
 import pandas as pd
-# !pip install gspread
-import gspread
-import datetime
-from IPython.display import clear_output
-from datetime import datetime
-from datetime import date
-from datetime import timedelta
-import time
-today=date.today().strftime("%a-%b-%Y")
-yesterday = (date.today()- timedelta(days = 1)).strftime("%Y-%m-%d")
-this_year = int(date.today().strftime("%Y"))
-last_year = int(this_year)-1
-last_last_year = int(this_year)-2
-import re
-import warnings
-warnings.filterwarnings('ignore')
-clear_output()
+from bs4 import BeautifulSoup
+from flask_cors import CORS
 
-sa = gspread.service_account(filename = 'sibedaspbg-logbook-cab4b99bdcae.json')
-sp = sa.open('rekap pbg')
+app = Flask(__name__)
+CORS(app)
 
-sh = sp.worksheet('Data')
+def scrape_data(nomor):
+    s = requests.Session()
 
-logb = pd.DataFrame(sh.get_all_values()[1:])
-logb.columns = sh.get_all_values()[0]
-tahuns = []
-for tahun, year in zip(logb['TAHUN TERBIT'], logb['Tahun Berjalan']):
-    tahuns.append(max(tahun, year))
-logb['Tahun'] = tahuns
-logb = logb[logb['Tahun']!='']
-logb.drop(columns=['2/8','TAHUN TERBIT','Tahun Berjalan'],inplace=True)
+    home_url = 'https://simbg.pu.go.id/Informasi'
+    home_resp = s.get(home_url, verify=False)
+    soup = BeautifulSoup(home_resp.text, 'html.parser')
+    csrf_test_name = soup.find('input', {'type': 'csrf_test_name'})
+
+    url = f'https://simbg.pu.go.id/Informasi/Lacak/{nomor}?csrf_test_name={csrf_test_name}'
+    resp = requests.get(url, verify=False)
+    html = '<table> ' + resp.text + ' </table>'
+
+    df = pd.read_html(html)[0].fillna('')
+    df.columns = ['No.', 'Modul', 'Tanggal', 'Keterangan']
+    return df.to_dict(orient='records')
+
+@app.route('/api/lacak/<string:nomor>', methods=['GET'])
+def get_lacak_data(nomor):
+    data = scrape_data(nomor)
+    return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
