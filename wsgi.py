@@ -1,4 +1,4 @@
-from cobaTest import app
+from coba import app
 
 if __name__ == "__main__":
     app.run()
