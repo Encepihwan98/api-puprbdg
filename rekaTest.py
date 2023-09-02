@@ -38,3 +38,4 @@ app.register_blueprint(rekap_bp, url_prefix='/api/rekap-pbg')
 
 if __name__ == '__main__':
     app.run(debug=False)
+    
