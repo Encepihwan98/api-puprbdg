@@ -12,6 +12,7 @@ rekap_bp = Blueprint('rekap', __name__)
 # Load the Google Sheets service account credentials
 sa = gspread.service_account(filename='sibedaspbg-logbook-cab4b99bdcae.json')
 
+
 # Open the spreadsheet
 sp = sa.open('rekap pbg')
 sh = sp.worksheet('Data')
@@ -38,4 +39,3 @@ app.register_blueprint(rekap_bp, url_prefix='/api/rekap-pbg')
 
 if __name__ == '__main__':
     app.run(debug=False)
-    
