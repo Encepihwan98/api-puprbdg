@@ -15,7 +15,7 @@ data = {
 }
 
 # Blueprint
-rekap_bp = Blueprint('rekap', _name_)
+rekap_bp = Blueprint('rekap', __name__)
 
 @rekap_bp.route('/', methods=['GET'])
 def get_data():
