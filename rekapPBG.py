@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, Blueprint
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Data yang akan digunakan dalam respons
 data = {

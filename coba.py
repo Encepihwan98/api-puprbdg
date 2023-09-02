@@ -6,7 +6,7 @@ from rekapPBG import rekap_bp
 app = Flask(__name__)
 CORS(app)
 
-app.register_blueprint(rekap_bp, url_prefix='/api/rekap-pbg')
+app.register_blueprint(rekap_bp, url_prefix='/api/rekap-pbg/')
 app.register_blueprint(lacak_bp, url_prefix='/api/lacak')
 
 if __name__ == '__main__':
