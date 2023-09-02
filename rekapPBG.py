@@ -34,7 +34,7 @@ def get_data():
     data = fetch_data()
     return jsonify(data.to_dict(orient='records'))
 
-app.register_blueprint(rekap_bp, url_prefix='/api/rekap-pbg')
+app.register_blueprint(rekap_bp, url_prefix='/api/rekap-pbg/')
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
