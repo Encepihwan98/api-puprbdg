@@ -234,7 +234,7 @@ def get_data():
      
     return jsonify(response_data)
 
-app.register_blueprint(macetplan, url_prefix='/api/macet-plan')
+app.register_blueprint(macetplan, url_prefix='/api/macet-plan/')
 
 if __name__ == '__main__':
     app.run(debug=False)
