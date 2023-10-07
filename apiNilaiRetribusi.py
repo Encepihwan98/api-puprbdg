@@ -57,7 +57,7 @@ def get_data():
     
     return jsonify(response_data)
 
-app.register_blueprint(nilai_ret, url_prefix='/api/nilai-retribusi')
+app.register_blueprint(nilai_ret, url_prefix='/api/nilai-retribusi/')
 
 if __name__ == '__main__':
     app.run(debug=False)
