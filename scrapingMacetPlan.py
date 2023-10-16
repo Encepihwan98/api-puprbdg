@@ -52,101 +52,96 @@ def fetch_data():
     rekap_new = pd.DataFrame(srn.get_all_values()[1:])
     rekap_new.columns = srn.get_all_values()[0]
     rekap_new['Duration'] = rekap_new['Duration'].apply(lambda x:float(x))
-    rekap_new['Usulan Retribusi'] = rekap_new['Usulan Retribusi'].apply(lambda x:float(x))
+    rekap_new['Capitals'] = rekap_new['Capitals'].apply(lambda x:float(x))
 
     # Print hasil
     berkas_aktual_belum_terverifikasi = rekap_new[(rekap_new['Status Permohonan']!="Selesai Verifikasi")&
-                                            (rekap_new['Tahun']==str(this_year))]
-    berkas_aktual_belum_terverifikasi_und7 = berkas_aktual_belum_terverifikasi['No. Registrasi'][(berkas_aktual_belum_terverifikasi['Duration']<=7)|
-                                                                                                (berkas_aktual_belum_terverifikasi['Duration'].isna())].nunique()
+                                              (rekap_new['Tahun']==str(this_year))]
+    berkas_aktual_belum_terverifikasi_und7 = len(berkas_aktual_belum_terverifikasi[(berkas_aktual_belum_terverifikasi['Duration']<=7)|
+                                                                               (berkas_aktual_belum_terverifikasi['Duration'].isna())])
 
-    berkas_aktual_belum_terverifikasi_7to14 = berkas_aktual_belum_terverifikasi['No. Registrasi'][(berkas_aktual_belum_terverifikasi['Duration']>7)&
-                                                                                                (berkas_aktual_belum_terverifikasi['Duration']<=14)].nunique()
+    berkas_aktual_belum_terverifikasi_7to14 = len(berkas_aktual_belum_terverifikasi[(berkas_aktual_belum_terverifikasi['Duration']>7)&
+                                                                            (berkas_aktual_belum_terverifikasi['Duration']<=14)])
 
-    berkas_aktual_belum_terverifikasi_ov14 = berkas_aktual_belum_terverifikasi['No. Registrasi'][(berkas_aktual_belum_terverifikasi['Duration']>14)].nunique()
+    berkas_aktual_belum_terverifikasi_ov14 = len(berkas_aktual_belum_terverifikasi[(berkas_aktual_belum_terverifikasi['Duration']>14)])
     # ----------------------------------------------------------------------------------------------------------------------------
-    potensi_besar = rekap_new[(rekap_new['Usulan Retribusi']>50000000)&
-                        (rekap_new['Status Permohonan']!="Selesai Verifikasi")&
-                        (rekap_new['Tahun']==str(this_year))]
+    potensi_besar = rekap_new[(rekap_new['Capitals']>50000000)&
+                              (rekap_new['Status Permohonan']!="Selesai Verifikasi")&
+                              (rekap_new['Tahun']==str(this_year))]
+    potensi_besar_und7 =  len(potensi_besar[(potensi_besar['Duration'].isna())|
+                                       (potensi_besar['Duration']<=7)])
 
-    potensi_besar_und7 = potensi_besar['No. Registrasi'][(potensi_besar['Duration'].isna())&
-                                                        (potensi_besar['Duration']<=7)].nunique()
+    potensi_besar_7to14 = len(potensi_besar[(potensi_besar['Duration']>7)&
+                                        (potensi_besar['Duration']<=14)])
 
-    potensi_besar_7to14 = potensi_besar['No. Registrasi'][(potensi_besar['Duration']>7)&
-                                                        (potensi_besar['Duration']<=14)].nunique()
-
-    potensi_besar_ov14 = potensi_besar['No. Registrasi'][(potensi_besar['Duration']>14)].nunique()
+    potensi_besar_ov14 = len(potensi_besar[(potensi_besar['Duration']>14)])
     # ----------------------------------------------------------------------------------------------------------------------------
-    potensi_kecil = rekap_new[(rekap_new['Usulan Retribusi']<50000000)&
-                        (rekap_new['Status Permohonan']!="Selesai Verifikasi")&
-                        (rekap_new['Tahun']==str(this_year))]
+    potensi_kecil = rekap_new[(rekap_new['Capitals']<50000000)&
+                              (rekap_new['Status Permohonan']!="Selesai Verifikasi")&
+                              (rekap_new['Tahun']==str(this_year))]
 
-    potensi_kecil_und7 = potensi_kecil['No. Registrasi'][(potensi_kecil['Duration'].isna())|
-                                                        (potensi_kecil['Duration']<=7)].nunique()
+    potensi_kecil_und7 = len(potensi_kecil[(potensi_kecil['Duration'].isna())|
+                                       (potensi_kecil['Duration']<=7)])
 
-    potensi_kecil_7to14 = potensi_kecil['No. Registrasi'][(potensi_kecil['Duration']>7)&
-                                                        (potensi_kecil['Duration']<=14)].nunique()
+    potensi_kecil_7to14 = len(potensi_kecil[(potensi_kecil['Duration']>7)&
+                                        (potensi_kecil['Duration']<=14)])
 
-    potensi_kecil_ov14 = potensi_kecil['No. Registrasi'][(potensi_kecil['Duration']>14)].nunique()
+    potensi_kecil_ov14 = len(potensi_kecil[(potensi_kecil['Duration']>14)])
     # ----------------------------------------------------------------------------------------------------------------------------
     berkas_aktual_terverifikasi_dinas_teknis = rekap_new[(rekap_new['Status Permohonan']=="Selesai Verifikasi")&
-                                                    (rekap_new['Tahun']==str(this_year))]
+                                                         (rekap_new['Tahun']==str(this_year))]
 
-    berkas_aktual_terverifikasi_dinas_teknis_und7 = berkas_aktual_terverifikasi_dinas_teknis['No. Registrasi'][(berkas_aktual_terverifikasi_dinas_teknis['Duration']<=7)|
-                                                                                                            (berkas_aktual_terverifikasi_dinas_teknis['Duration'].isna())].nunique()
+    berkas_aktual_terverifikasi_dinas_teknis_und7 = len(berkas_aktual_terverifikasi_dinas_teknis[((berkas_aktual_terverifikasi_dinas_teknis['Duration']<=7)|
+                                                                                          (berkas_aktual_terverifikasi_dinas_teknis['Duration'].isna()))])
 
-    berkas_aktual_terverifikasi_dinas_teknis_7to14 = berkas_aktual_terverifikasi_dinas_teknis['No. Registrasi'][(berkas_aktual_terverifikasi_dinas_teknis['Duration']>7)&
-                                                                                                                (berkas_aktual_terverifikasi_dinas_teknis['Duration']<=14)].nunique()
+    berkas_aktual_terverifikasi_dinas_teknis_7to14 = len(berkas_aktual_terverifikasi_dinas_teknis[(berkas_aktual_terverifikasi_dinas_teknis['Duration']>7)&
+                                                                                          (berkas_aktual_terverifikasi_dinas_teknis['Duration']<=14)])
 
-    berkas_aktual_terverifikasi_dinas_teknis_ov14 = berkas_aktual_terverifikasi_dinas_teknis['No. Registrasi'][(berkas_aktual_terverifikasi_dinas_teknis['Duration']>14)].nunique()
+    berkas_aktual_terverifikasi_dinas_teknis_ov14 = len(berkas_aktual_terverifikasi_dinas_teknis[(berkas_aktual_terverifikasi_dinas_teknis['Duration']>14)])
     # ----------------------------------------------------------------------------------------------------------------------------
-    berkas_terbit_pbg = rekap_new[((rekap_new['Status']=='Menunggu Pengambilan Izin')|
-                                (rekap_new['Status']=='Penugasan Inpeksi')|
-                                (rekap_new['Status'].isna()))&
-                                (rekap_new['Tahun']==str(this_year))]
+    berkas_terbit_pbg = rekap_new[(rekap_new['Selesai Terbit']=='Selesai Terbit')&
+                              (rekap_new['Tahun']==str(this_year))]
 
-    berkas_terbit_pbg_und7 = berkas_terbit_pbg['No. Registrasi'][(berkas_terbit_pbg['Duration'].isna())|
-                                                                (berkas_terbit_pbg['Duration']<=7)].nunique()
+    berkas_terbit_pbg_und7 = len(berkas_terbit_pbg[(berkas_terbit_pbg['Duration'].isna())|
+                                           (berkas_terbit_pbg['Duration']<=7)])
 
-    berkas_terbit_pbg_7to14 = berkas_terbit_pbg['No. Registrasi'][(berkas_terbit_pbg['Duration']>7)&
-                                                                (berkas_terbit_pbg['Duration']<=14)].nunique()
+    berkas_terbit_pbg_7to14 = len(berkas_terbit_pbg[(berkas_terbit_pbg['Duration']>7)&
+                                            (berkas_terbit_pbg['Duration']<=14)])
 
-    berkas_terbit_pbg_ov14 = berkas_terbit_pbg['No. Registrasi'][(berkas_terbit_pbg['Duration']>14)].nunique()
+    berkas_terbit_pbg_ov14 = len(berkas_terbit_pbg[(berkas_terbit_pbg['Duration']>14)])
     # ----------------------------------------------------------------------------------------------------------------------------
     proses_penerbitan_concat = pd.concat([berkas_aktual_terverifikasi_dinas_teknis,berkas_terbit_pbg])
     proses_penerbitan = proses_penerbitan_concat.drop_duplicates(keep=False)
 
-    proses_penerbitan_und7 = proses_penerbitan['No. Registrasi'][(proses_penerbitan['Duration'].isna())|
-                                                                (proses_penerbitan['Duration']<=7)].nunique()
+    proses_penerbitan_und7 = len(proses_penerbitan[(proses_penerbitan['Duration'].isna())|
+                                           (proses_penerbitan['Duration']<=7)])
 
-    proses_penerbitan_7to14 = proses_penerbitan['No. Registrasi'][(proses_penerbitan['Duration']>7)&
-                                                                (proses_penerbitan['Duration']<=14)].nunique()
+    proses_penerbitan_7to14 = len(proses_penerbitan[(proses_penerbitan['Duration']>7)&
+                                            (proses_penerbitan['Duration']<=14)])
 
-    proses_penerbitan_ov14 = proses_penerbitan['No. Registrasi'][(proses_penerbitan['Duration']>14)].nunique()
+    proses_penerbitan_ov14 = len(proses_penerbitan[(proses_penerbitan['Duration']>14)])
     # ----------------------------------------------------------------------------------------------------------------------------
-    terproses_di_ptsp = rekap_new[((rekap_new['Status']=='Menunggu Pembayaran Retribusi')|
-                                (rekap_new['Status']=='Menunggu Validasi Retribusi')|
-                                (rekap_new['Status']=='Pengiriman SKRD'))&
-                                (rekap_new['Tahun']==str(this_year))]
+    terproses_di_ptsp = rekap_new[(rekap_new['PTSP']=='PTSP')&
+                              (rekap_new['Tahun']==str(this_year))]
 
-    terproses_di_ptsp_und7 = terproses_di_ptsp['No. Registrasi'][(terproses_di_ptsp['Duration'].isna())|
-                                                                (terproses_di_ptsp['Duration']<=7)].nunique()
+    terproses_di_ptsp_und7 = len(terproses_di_ptsp[(terproses_di_ptsp['Duration'].isna())|
+                                           (terproses_di_ptsp['Duration']<=7)])
 
-    terproses_di_ptsp_7to14 = terproses_di_ptsp['No. Registrasi'][(terproses_di_ptsp['Duration']>7)&
-                                                                (terproses_di_ptsp['Duration']<=14)].nunique()
+    terproses_di_ptsp_7to14 = len(terproses_di_ptsp[(terproses_di_ptsp['Duration']>7)&
+                                            (terproses_di_ptsp['Duration']<=14)])
 
-    terproses_di_ptsp_ov14 = terproses_di_ptsp['No. Registrasi'][(terproses_di_ptsp['Duration']>14)].nunique()
+    terproses_di_ptsp_ov14 = len(terproses_di_ptsp[(terproses_di_ptsp['Duration']>14)])
     # ----------------------------------------------------------------------------------------------------------------------------
     terproses_di_dputr_concat = pd.concat([proses_penerbitan,terproses_di_ptsp])
     terproses_di_dputr = terproses_di_dputr_concat.drop_duplicates(keep=False)
 
-    terproses_di_dputr_und7 = terproses_di_dputr['No. Registrasi'][(terproses_di_dputr['Duration'].isna())|
-                                                                (terproses_di_dputr['Duration']<=7)].nunique()
+    terproses_di_dputr_und7 = len(terproses_di_dputr[(terproses_di_dputr['Duration'].isna())|
+                                           (terproses_di_dputr['Duration']<=7)])
 
-    terproses_di_dputr_7to14 = terproses_di_dputr['No. Registrasi'][(terproses_di_dputr['Duration']>7)&
-                                                                    (terproses_di_dputr['Duration']<=14)].nunique()
+    terproses_di_dputr_7to14 = len(terproses_di_dputr[(terproses_di_dputr['Duration']>7)&
+                                            (terproses_di_dputr['Duration']<=14)])
 
-    terproses_di_dputr_ov14 = terproses_di_dputr['No. Registrasi'][(terproses_di_dputr['Duration']>14)].nunique()
+    terproses_di_dputr_ov14 = len(terproses_di_dputr[(terproses_di_dputr['Duration']>14)])
     
 
     return (
