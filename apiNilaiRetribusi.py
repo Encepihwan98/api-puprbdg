@@ -20,7 +20,7 @@ sh = sp.worksheet('rekap new')
 def fetch_data():
     data = sh.get_all_values()[1:]
     # Mengonversi nilai-nilai dari row[33] menjadi float
-    nilai_retribusi = [float(row[34]) for row in data]
+    nilai_retribusi = [float(row[43]) for row in data]
 
     # Kelompokkan data menjadi dua kelompok (dibawah 25 juta dan diatas 25 juta)
     nonUsahaDibawah = [nilai for nilai in nilai_retribusi if nilai < 25000000]
