@@ -3,6 +3,7 @@ from flask_cors import CORS
 from apiLacak import lacak_bp
 from apiDetailRegis import detail_regis
 from rekapPBG import rekap_bp
+from rekapPBG2 import rekap_pbg2
 from apiNilaiRetribusi import nilai_ret
 from scrapingMacetPlan import macetplan
 
@@ -10,6 +11,7 @@ app = Flask(__name__)
 CORS(app)
 
 app.register_blueprint(rekap_bp, url_prefix='/api/rekap-pbg/')
+app.register_blueprint(rekap_pbg2, url_prefix='/api/rekap-pbg2/')
 app.register_blueprint(nilai_ret, url_prefix='/api/nilai-retribusi/')
 app.register_blueprint(lacak_bp, url_prefix='/api/lacak')
 app.register_blueprint(detail_regis, url_prefix='/api/detail_regis/')
